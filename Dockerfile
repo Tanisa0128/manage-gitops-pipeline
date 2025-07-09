@@ -28,7 +28,11 @@ RUN curl -Lo kind https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-amd64 && \
     mv kind /usr/local/bin/kind
 
 #Install flux
-RUN curl -s https://fluxcd.io/install.sh | bash -s -- --version=v2.3.0
+RUN curl -Lo flux.tar.gz https://github.com/fluxcd/flux2/releases/download/v2.3.0/flux_2.3.0_linux_amd64.tar.gz \
+&& tar -xzf flux.tar.gz \
+&& mv flux /usr/local/bin/flux \
+&& chmod +x /user/local/bin/flux \
+&& m flux.tar.gz
 
 WORKDIR /home/gitops
 COPY bootstrap.sh /home/gitops/
