@@ -18,6 +18,7 @@ function bootstrap_flux(){
   echo "waiting for nodes to be ready..."
   kubectl wait --for=condition=Ready nodes --all --timeout=120s
   echo "Bootstrapping Flux with repo: $GIT_REPO"
+  echo "Github user:$GITHUB_USER"
   flux bootstrap github \
   --owner=$GITHUB_USER \
   --repository=$GIT_REPO \
