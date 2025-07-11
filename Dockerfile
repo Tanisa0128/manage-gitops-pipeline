@@ -38,3 +38,4 @@ RUN curl -Lo flux.tar.gz https://github.com/fluxcd/flux2/releases/download/v2.3.
 WORKDIR /home/gitops
 COPY bootstrap.sh /home/gitops/
 RUN chmod +x /home/gitops/bootstrap.sh
+RUN chmod +x /home/gitops/kind-config-template.yaml
