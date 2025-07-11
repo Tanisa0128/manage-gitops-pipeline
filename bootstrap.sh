@@ -6,12 +6,13 @@ CLUSTER_NAME=$1
 GIT_REPO=$2
 GITHUB_USER=Tanisa0128
 if [ -z "$CLUSTER_NAME" ] || [ -z "$GIT_REPO" ]; then
-echo "Usage :$0 <CLUSTER_NAME><GIT_REPO>"
+echo "Usage :$0 <CLUSTER_NAME> <GIT_REPO>"
 exit 1
 fi
 
 function prepare_kind_config() {
 
+  export CLUSTER_NAME
   envsubst < kind-config-template.yaml > kind-config-$CLUSTER_NAME.yaml
 }
 function create_cluster(){
