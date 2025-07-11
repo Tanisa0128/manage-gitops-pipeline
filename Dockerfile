@@ -34,6 +34,8 @@ RUN curl -Lo flux.tar.gz https://github.com/fluxcd/flux2/releases/download/v2.3.
     chmod +x /usr/local/bin/flux && \
     rm flux.tar.gz
 
+#Install gettext to render template
+RUN apt update && apt install -y gettext
 
 WORKDIR /home/gitops
 COPY bootstrap.sh /home/gitops/
